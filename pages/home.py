@@ -164,21 +164,21 @@ def show():
     # Hero Section
     st.markdown("""
     <div class="hero-container">
-        <h1 class="app-title">AutoXpert</h1>
-        <p class="app-tagline">Smart Solutions for Your Vehicle Needs</p>
-        
+         <h1 class="app-title">AutoXpert</h1>
+         <p class="app-tagline">Smart Solutions for Your Vehicle Needs</p>
+
         <div class="video-container">
             <iframe 
-                src="https://www.youtube.com/embed/3Q7Dpjjgt9w" 
-                title="AutoXpert Animation"
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                src="https://www.youtube.com/embed/HwzxrMEGlB4"
+                 title="AutoXpert Animation"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                 allowfullscreen>
             </iframe>
-        </div>
+         </div>
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Let's Go Button
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:

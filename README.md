@@ -1,3 +1,169 @@
+## AI Job Application Assistant (Streamlit + OpenRouter)
+
+This project is a full-stack **AI Job Application Assistant** built with **Streamlit** and **OpenRouter GPT-4/5-level models**.
+
+It lets you:
+
+- **Upload your CV** (PDF, DOCX, or TXT) or paste the text
+- **Upload a job description** or paste the text
+- **Provide your skills**
+- Then automatically generates:
+  - **ATS score** (0–100) plus feedback
+  - **Skill gap analysis**
+  - **Improved, ATS-optimized CV**
+  - **Custom cover letter**
+  - **Downloadable DOCX and PDF** versions of the improved CV and cover letter
+
+---
+
+## 1. Project Structure
+
+- `app.py` – Main Streamlit application
+- `utils/openrouter_client.py` – Helper to call OpenRouter Chat Completions API
+- `utils/file_utils.py` – File parsing utilities (PDF, DOCX, TXT)
+- `requirements.txt` – Python dependencies
+
+---
+
+## 2. Prerequisites
+
+- **Python 3.9+** installed on your system
+- An **OpenRouter API key** (free tier available)
+  - Sign up at `https://openrouter.ai`
+
+---
+
+## 3. Setup (Windows / PowerShell)
+
+Open **PowerShell** in your project folder:
+
+```powershell
+cd "E:\stremlit\New folder"
+```
+
+### 3.1 Create and activate a virtual environment
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks the script, you may need to temporarily relax execution policy (run PowerShell **as Administrator**):
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+```
+
+Then activate again:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### 3.2 Install dependencies
+
+```powershell
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+---
+
+## 4. Configure OpenRouter API Key
+
+You must provide an `OPENROUTER_API_KEY` for the app to work. You can do this in **either** of two ways:
+
+### Option A – Environment variable (recommended)
+
+In the same PowerShell session where you run Streamlit:
+
+```powershell
+$env:OPENROUTER_API_KEY = "YOUR_OPENROUTER_API_KEY_HERE"
+```
+
+### Option B – Streamlit secrets
+
+Create a `.streamlit` folder in your project:
+
+```powershell
+mkdir .streamlit
+```
+
+Create a file `.streamlit/secrets.toml` with the following content:
+
+```toml
+OPENROUTER_API_KEY = "YOUR_OPENROUTER_API_KEY_HERE"
+```
+
+Either method works; the app will automatically detect the key.
+
+---
+
+## 5. Run the App
+
+From the activated virtual environment in PowerShell:
+
+```powershell
+streamlit run app.py
+```
+
+Streamlit will print a local URL (usually `http://localhost:8501`) – open it in your browser.
+
+---
+
+## 6. How to Use the Assistant
+
+1. **Upload your CV**
+   - Upload a PDF, DOCX, or TXT file, **or** paste the CV text in the text area.
+2. **Upload the job description**
+   - Upload a PDF, DOCX, or TXT file, **or** paste the job description text.
+3. **Enter your skills**
+   - Type a comma-separated list or one skill per line.
+4. Click **“🚀 Analyze & Generate Documents”**
+5. Wait for the AI to:
+   - Calculate **ATS score** and show feedback
+   - Show **skill gap analysis**
+   - Generate an **improved CV**
+   - Generate a **custom cover letter**
+6. Scroll down to download:
+   - **Improved CV** as DOCX or PDF
+   - **Cover letter** as DOCX or PDF
+
+---
+
+## 7. Changing Models
+
+On the left sidebar, you can choose different OpenRouter models, for example:
+
+- `openai/gpt-4.1-mini`
+- `openai/gpt-4.1`
+- `openai/gpt-4o-mini`
+- `anthropic/claude-3.5-sonnet`
+
+Make sure the model you choose is available on your OpenRouter account.
+
+---
+
+## 8. Notes & Troubleshooting
+
+- **PDF extraction quality** depends on how the PDF was created (text-based vs scanned).
+- If you see errors like *“OPENROUTER_API_KEY is not set”*, check your environment variable or `secrets.toml`.
+- If you get HTTP errors from OpenRouter, verify:
+  - Your API key is correct
+  - The chosen model is supported
+  - Your network/firewall allows outbound HTTPS requests
+
+---
+
+## 9. Extending the Project
+
+Ideas for improvement:
+
+- Add **multi-language** support for CVs and job descriptions.
+- Generate **multiple CV variants** tailored to different roles.
+- Save analyses to a small database for history and comparison.
+- Add **export to plain TXT/Markdown** or email-ready formats.
+
 # AutoXpert - Vehicle Damage Identification & Repair Shop Recommendation
 
 A comprehensive Streamlit application for vehicle damage identification, tire condition analysis, and market price prediction using AI models.
