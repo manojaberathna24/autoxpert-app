@@ -9,7 +9,7 @@ A comprehensive Streamlit application for vehicle damage identification, tire co
 3. **Market Price Prediction**: Get accurate vehicle valuation based on brand, year, and condition
 
 
-How To Run
+PreBuild tO Run
 
 create venv
 
@@ -20,9 +20,12 @@ venv\Scripts\activate
 
 pip install -r requirements.txt
 
-locally run
+RunProject 
+
 streamlit run app.py
+
 python -m streamlit run app.py
 
 streamlit cloud proof 
+
 https://autoxpert-app.streamlit.app/
